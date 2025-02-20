@@ -1,5 +1,4 @@
-﻿
-namespace CSharpTelegramBot
+﻿namespace CSharpTelegramBot
 {
     public class AllQuestions
     {
