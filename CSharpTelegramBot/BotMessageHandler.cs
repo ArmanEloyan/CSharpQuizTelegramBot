@@ -85,14 +85,13 @@ namespace CSharpTelegramBot
                                 caption += $"({selectedAnswer}) պատասխանը սխալ է ❌\n";
                                 caption += $"ճիշտ պատասխանն է {question.TrueAnswer}";
                             }
-                            var newCaption = caption.ToString();
 
                             if (update.CallbackQuery.Message.Photo != null && update.CallbackQuery.Message.Photo.Any())
                             {
                                 await _botClient.EditMessageCaption(
                                     chatId: chatId,
                                     messageId: update.CallbackQuery.Message.MessageId,
-                                    caption: newCaption,
+                                    caption: caption,
                                     replyMarkup: null,
                                     cancellationToken: cancellationToken);
                             }
@@ -101,7 +100,7 @@ namespace CSharpTelegramBot
                                 await _botClient.EditMessageText(
                                     chatId: chatId,
                                     messageId: update.CallbackQuery.Message.MessageId,
-                                    text: newCaption,
+                                    text: caption,
                                     replyMarkup: null,
                                     cancellationToken: cancellationToken);
                             }
@@ -134,7 +133,7 @@ namespace CSharpTelegramBot
         {
             if (_userCurrentQuestion.TryGetValue(chatId, out int currentQuestionIndex))
             {
-                var question = _questions[currentQuestionIndex];
+                Question question = _questions[currentQuestionIndex];
                 await SendQuestionAsync(chatId, question, cancellationToken);
             }
         }
@@ -151,12 +150,12 @@ namespace CSharpTelegramBot
             {
                 buttons.Add(new InlineKeyboardButton[]
                 {
-                InlineKeyboardButton.WithCallbackData(letters[i], $"answer_{question.Options[i]}"),
+                InlineKeyboardButton.WithCallbackData(letters[i], $"answer_{question.Options[i]}")
                 }
                 );
 
             }
-            var answerButtons = new InlineKeyboardMarkup(buttons);
+            InlineKeyboardMarkup answerButtons = new InlineKeyboardMarkup(buttons);
 
             if (string.IsNullOrWhiteSpace(question.PhotoPath))
             {

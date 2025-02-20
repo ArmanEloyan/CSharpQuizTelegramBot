@@ -30,9 +30,9 @@ namespace CSharpTelegramBot
             Thread.Sleep(Timeout.Infinite);
         }
 
-        private static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
+        private static Task HandleErrorAsync(ITelegramBotClient botClient, Exception ex, CancellationToken cancellationToken)
         {
-            Console.WriteLine($"{exception.Message}");
+            Console.WriteLine($"{ex.Message}");
             return Task.CompletedTask;
         }
     }
