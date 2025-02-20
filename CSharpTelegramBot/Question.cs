@@ -21,7 +21,7 @@ namespace CSharpTelegramBot
 
         public void SetRandomOptions()
         {
-            var random = new Random();
+            Random random = new Random();
             Options = Options.OrderBy(x => random.Next()).ToList();
         }
 
