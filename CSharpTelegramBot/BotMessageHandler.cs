@@ -140,6 +140,8 @@ namespace CSharpTelegramBot
 
         private async Task SendQuestionAsync(long chatId, Question question, CancellationToken cancellationToken)
         {
+            question.SetRandomOptions();
+
             string[] letters = new string[] { "A", "B", "C", "D" };
 
             string caption = question.GetQuesionAsString();
