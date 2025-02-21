@@ -27,7 +27,7 @@ namespace CSharpTelegramBot
 
         public string GetQuesionAsString()
         {
-            string[] letters = new string[] { "A", "B", "C", "D" };
+            string[] letters = new string[] { "A", "B", "C", "D","E","F" };
 
             StringBuilder optionsAsString = new StringBuilder();
 

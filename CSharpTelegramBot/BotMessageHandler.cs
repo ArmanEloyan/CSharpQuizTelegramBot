@@ -142,7 +142,7 @@ namespace CSharpTelegramBot
         {
             question.SetRandomOptions();
 
-            string[] letters = new string[] { "A", "B", "C", "D" };
+            string[] letters = new string[] { "A", "B", "C", "D", "E", "F" };
 
             string caption = question.GetQuesionAsString();
 

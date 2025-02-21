@@ -16,7 +16,7 @@
                 new Question(
                     "Ի՞նչ ցույց կտա այս կոդը:",
                     "1.png",
-                    new List<string> { "0", "1", "Runtime Error", "Compile time error" },
+                    new List<string> { "0", "1", "Runtime Error", "Compile time error","123" },
                     "Compile time error"
                 ),
                 new Question(
