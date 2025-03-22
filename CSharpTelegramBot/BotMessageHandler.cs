@@ -49,7 +49,7 @@ namespace CSharpTelegramBot
                     {
                         if (_userCurrentQuestion.ContainsKey(chatId))
                         {
-                            _userCurrentQuestion[update.CallbackQuery.Message.Chat.Id] = 0;
+                            _userCurrentQuestion[chatId] = 0;
                         }
                         else
                         {
@@ -155,6 +155,7 @@ namespace CSharpTelegramBot
                 InlineKeyboardButton.WithCallbackData(letters[i], $"answer_{question.Options[i]}")
                 }
                 );
+                Console.WriteLine($"answer_{question.Options[i]}");
 
             }
             InlineKeyboardMarkup answerButtons = new InlineKeyboardMarkup(buttons);
